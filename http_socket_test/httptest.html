@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript"  >
+    var webSocket = new WebSocket("ws://192.168.0.103:4567");
+    // 当WebSocket建立网络连接时激发该函数
+    webSocket.onopen= function()
+    {
+        alert("已打开连接");
+        // 发送消息
+        webSocket.send("JS客户端");
+    }
+    // 为onmessage事件绑定监听器，接收消息
+    webSocket.onmessage= function(event)
+    {
+        // 接收消息
+        alert("收到的消息是：" + event.data);
+    }
+</script>
+</body>
+</html>
